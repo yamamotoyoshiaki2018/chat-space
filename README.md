@@ -35,7 +35,6 @@ Things you may want to cover:
 - belongs_to :user
 
 
-
 ## usersテーブル
 
 |Column|Type|Options|
@@ -43,9 +42,9 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :groups, through: :members
 - has_many :members
 - has_many :massages
+- has_many :groups, through: :members
 
 
 ## groupsテーブル
@@ -55,19 +54,19 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :users, through: :members
 - has_many :members
 - has_many :massages
+- has_many :users, through: :members
 
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
-|group_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|body|text||
+|image|string||
+|group_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
