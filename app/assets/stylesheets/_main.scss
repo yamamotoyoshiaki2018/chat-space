@@ -10,7 +10,7 @@
     }
     &__members{
       font-size: 12px;
-      color: #999999;
+      color: $gray-color;
     }
   }
   &__right{
@@ -43,7 +43,7 @@
     }
     &__date{
       font-size: 12px;
-      color: #999999;
+      color: $gray-color;
       float: left;
       line-height: 24px;
 
@@ -66,7 +66,7 @@
     margin: 20px 40px;
     &__text{
       font-size: 16px;
-      color: #434A54;
+      color: $main-font-color;
       float: left;
       height: 50px;
       width: calc(100% - 25px - 70px - 50px);
@@ -95,20 +95,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
