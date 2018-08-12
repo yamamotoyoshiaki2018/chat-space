@@ -1,0 +1,27 @@
+.contents{
+  height: 100vh;
+  width: 100vw;
+  .notification{
+    height: 30px;
+    background-color: $light-blue;
+    .notice{
+      text-align: center;
+      color: white;
+      line-height: 30px;
+    }
+  }
+  .side-bar{
+    height: 100%;
+    width: 300px;
+    background-color: #2f3e51;
+    float: left;
+  }
+  .main{
+    height: 100%;
+    width: calc(100% - 300px);
+    float: right;
+    position: relative;
+  }
+}
+
+
