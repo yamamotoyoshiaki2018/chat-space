@@ -1,0 +1,37 @@
+.contents
+  .notification
+    .notice チャットグループが作成されました。
+  .side-bar
+    .side-bar__top
+      %p.side-bar__top__name yamamoto
+      .side-bar__top__icons
+        = link_to "#" do
+          / %p.fa.fa-edit.fa-2x
+        = fa_icon("edit 2x")
+        = link_to "#" do
+          / %p.fa.fa-cog.fa-2x
+        = fa_icon("cog 2x")
+    .side-bar__group
+      = render partial: "side-bar"
+  .main
+    .main__top
+      .main__top__left
+        %p.main__top__left__title テストグループ
+        %p.main__top__left__members Member： yamamoto
+      .main__top__right
+        .main__top__right__btn
+          = link_to "#" do
+            %p.fa_icon Edit
+    .main__messages
+      = render partial: "main-message"
+
+    .main__form
+      .main__form__area
+        %input{class: "main__form__area__text", type: "text", placeholder: "type a message"}
+      %label
+      .main__form__area__img
+        .main__form__area__img__icon
+          / %i.fa.fa-picture-o.fa-2x
+          = fa_icon("picture-o")
+      .main__form__area__btn
+        %input{class: "main__form__area__btn", type: "submit", value:"SEND"}
