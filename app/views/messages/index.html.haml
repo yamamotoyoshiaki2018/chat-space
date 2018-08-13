@@ -6,9 +6,11 @@
       %p.side-bar__top__name yamamoto
       .side-bar__top__icons
         = link_to "#" do
-          %p.fa.fa-edit.fa-2x
+          / %p.fa.fa-edit.fa-2x
+        = fa_icon("edit 2x")
         = link_to "#" do
-          %p.fa.fa-cog.fa-2x
+          / %p.fa.fa-cog.fa-2x
+        = fa_icon("cog 2x")
     .side-bar__group
       = render partial: "side-bar"
   .main
@@ -29,6 +31,7 @@
       %label
       .main__form__area__img
         .main__form__area__img__icon
-          %i.fa.fa-picture-o.fa-2x
+          / %i.fa.fa-picture-o.fa-2x
+          = fa_icon("picture-o")
       .main__form__area__btn
         %input{class: "main__form__area__btn", type: "submit", value:"SEND"}
