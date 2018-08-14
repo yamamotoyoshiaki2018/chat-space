@@ -85,6 +85,10 @@
         text-align: center;
         line-height: 50px;
       }
+      &__hidden{
+        display: none;
+        float: right;
+      }
     }
     &__btn {
       height: 50px;

@@ -1,17 +1,18 @@
 .contents
-  .notification
-    .notice チャットグループが作成されました。
+  / .notification
+  /   .notice チャットグループが作成されました。
   .side-bar
     .side-bar__top
       %h3.side-bar__top__name
         = current_user.name
       .side-bar__top__icons
-        = link_to "#" do
+        = link_to new_group_path do
           = fa_icon("edit 2x")
         = link_to edit_user_path(current_user) do
-          = fa_icon 'cog', class: 'icon'
+          = fa_icon 'cog 2x', class: 'icon'
     .side-bar__group
       = render partial: "side-bar"
+
   .main
     .main__top
       .main__top__left
@@ -19,18 +20,28 @@
         %p.main__top__left__members Member： yamamoto
       .main__top__right
         .main__top__right__btn
-          = link_to "#" do
+          = link_to "/groups/1/edit" do
             %p.fa_icon Edit
     .main__messages
-      = render partial: "main-message"
+      / = render partial: 'main__messages', collection: @messages
+      - @messages.each do |message|
+        .main__messages__list
+          .main__messages__list__name
+            = message.user.name
+          .main__messages__list__date
+            = message.created_at
+          .main__messages__list__content
+            - if message.content.present?
+              = message.content
+            = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
 
     .main__form
-      .main__form__area
-        %input{class: "main__form__area__text", type: "text", placeholder: "type a message"}
-      %label
-      .main__form__area__img
-        .main__form__area__img__icon
-          / %i.fa.fa-picture-o.fa-2x
-          = fa_icon("picture-o")
-      .main__form__area__btn
-        %input{class: "main__form__area__btn", type: "submit", value:"SEND"}
+      = form_for [@group, @message] do |f|
+        .main__form__area
+          = f.text_field :content, class: 'main__form__area__text', placeholder: 'type a message'
+        .main__form__area__img
+          .main__form__area__img__icon
+            = f.label :image, class: 'main__form__area__img__icon' do
+              = fa_icon("picture-o")
+              = f.file_field :image, class: 'main__form__area__img__hidden'
+        = f.submit 'SEND', class: 'main__form__area__btn'
