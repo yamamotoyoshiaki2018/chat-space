@@ -1,12 +1,13 @@
-@import "./variable";
-@import "./mixin";
+@import "variable";
+@import "mixin";
 @import "font-awesome";
-@import "./reset";
-@import "./contents";
-@import "./side-bar";
-@import "./modules/user";
-@import "./main";
+@import "reset";
 @import "config/colors";
 @import "modules/flash";
+@import "contents";
+@import "side-bar";
+@import "modules/user";
+@import "main";
+@import "modules/group";
 
 
