@@ -4,18 +4,10 @@
   .main__messages__list__date
     = message.created_at
   .main__messages__list__content
-    - if message.content.present?
-      = message.content
-    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+    .main__messages__list__content__text
+      - if message.content.present?
+        = message.content
+    .main__messages__list__content__image
+      - if message.image.present?
+        = image_tag message.image.url
 
-/ .message
-/   .upper-message
-/     .upper-message__user-name
-/       = message.user.name
-/     .upper-message__date
-/       = format_posted_time(message.created_at)
-/   .lower-meesage
-/     - if message.content.present?
-/       %p.lower-message__content
-/         = message.content
-/     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

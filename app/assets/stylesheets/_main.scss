@@ -1,6 +1,10 @@
 .main__top {
   height: 100px;
-  padding: 0 40px 0;
+  padding: 0 40px;
+  width: calc(100vw - 380px);
+  border-bottom: solid 1px #eeeeee;
+  z-index: 2;
+  background-color: white;
   &__left {
     float: left;
     &__title {
@@ -28,11 +32,12 @@
   }
 }
 .main__messages {
-  border-top: solid 1px #eeeeee;
   padding: 0 40px;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 190px);
+  // margin-top: 146px;
+  z-index: 1;
+  overflow: auto;
   &__list {
-    padding-top: 46px;
     &__name {
       font-size: 16px;
       float: left;
@@ -58,10 +63,11 @@
 }
 .main__form {
   height: 90px;
-  width: 100%;
+  width: calc(100vw - 300px);
   position: absolute;
   background-color: #AAAAAA;
   bottom: 0;
+  // position: fixed;
   &__area {
     margin: 20px 40px;
     &__text {
