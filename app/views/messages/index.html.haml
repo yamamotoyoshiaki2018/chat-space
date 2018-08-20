@@ -16,8 +16,11 @@
   .main
     .main__top
       .main__top__left
-        %p.main__top__left__title テストグループ
-        %p.main__top__left__members Member： yamamoto
+        %p.main__top__left__title
+          = @group.name
+        %p.main__top__left__members
+          Member：
+          = current_user.name
       .main__top__right
         .main__top__right__btn
           = link_to "/groups/1/edit" do
@@ -31,12 +34,15 @@
           .main__messages__list__date
             = message.created_at
           .main__messages__list__content
-            - if message.content.present?
-              = message.content
-            = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+            .main__messages__list__content__text
+              - if message.content.present?
+                = message.content
+            .main__messages__list__content__image
+              - if message.image.present?
+                = image_tag message.image.url
 
     .main__form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: {class: 'message-form'}  do |f|
         .main__form__area
           = f.text_field :content, class: 'main__form__area__text', placeholder: 'type a message'
         .main__form__area__img

@@ -15,11 +15,12 @@
     width: 300px;
     background-color: #2f3e51;
     float: left;
+    position: fixed;
   }
   .main {
-    height: 100%;
-    width: calc(100% - 300px);
+    height: 100vh;
+    width: calc(100vw - 300px);
     float: right;
-    position: relative;
+    // position: relative;
   }
 }
