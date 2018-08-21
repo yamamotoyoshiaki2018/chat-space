@@ -67,8 +67,3 @@ $(function() {
      $(this).parent().remove();
    });
  });
-
-
-
-
-
