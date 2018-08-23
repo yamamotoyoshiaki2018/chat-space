@@ -25,6 +25,7 @@
         .main__top__right__btn
           = link_to "/groups/1/edit" do
             %p.fa_icon Edit
+
     .main__messages
       / = render partial: 'main__messages', collection: @messages
       - @messages.each do |message|
