@@ -1,7 +1,9 @@
 $(function(){
+  $(document).on('turbolinks:load', function() {
   function buildHTML(message){
-    var img = message.image? `<img src= ${message.image}>` : "";
-    var html =`<div class="main__messages__list">
+    // var img = message.image_url !== null ? `<img class="main__messages__list__content__image" src="${message.image}`: ""
+    var img = message.image ? `<img src=${message.image} class='main__messages__list__content__image'>`: ""
+    var html =`<div class="main__messages__list" data-message-id='${message.id}'>
                 <div class="main__messages__list__name">
                   ${message.name}
                 </div>
@@ -19,7 +21,6 @@ $(function(){
               </div>`
     return html;
   }
-
   function scrollbottom(){
     $('.main__messages').animate({scrollTop: $('.main__messages')[0].scrollHeight}, 'fast');
   }
@@ -46,4 +47,29 @@ $(function(){
       alert('error');
     })
   })
-})
+  $(function(){
+     setInterval(update,5000);
+   });
+   function update(){
+     var message_id = $('.main__messages__list:last').data('message-id');
+     $.ajax({
+       url: location.href,
+       type: 'GET',
+       data: { id: message_id },
+       dataType: 'json',
+     })
+     .done(function(data){
+       if (data.length > 0){
+         data.forEach(function(message){
+           var html = buildHTML(message);
+           $('.main__messages__list').append(html);
+           scrollbottom();
+         });
+       }
+     })
+     .fail(function(){
+       alert('error');
+     })
+   }
+ });
+});
