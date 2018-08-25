@@ -10,7 +10,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['/Users/yamamotoyoshiaki/.ssh/key_pem.pem']
+                  keys: ['/Users/yamamotoyoshiaki/.ssh/KeyPair.pem']
 
 # ローカルPCのEC2インスタンスのSSH鍵(pem)へのパス>']  ※例：/Users/yusukeyamane/.ssh/key_pem.pem
 
