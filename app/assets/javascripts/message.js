@@ -1,5 +1,5 @@
 $(function(){
-  $(document).on('turbolinks:load', function() {
+  // $(document).on('turbolinks:load', function() {
   function buildHTML(message){
     // var img = message.image_url !== null ? `<img class="main__messages__list__content__image" src="${message.image}`: ""
     var img = message.image ? `<img src=${message.image} class='main__messages__list__content__image'>`: ""
@@ -48,7 +48,7 @@ $(function(){
     })
   })
   $(function(){
-     setInterval(update,5000);
+     // setInterval(update,5000);
    });
    function update(){
      var message_id = $('.main__messages__list:last').data('message-id');
@@ -71,5 +71,5 @@ $(function(){
        alert('error');
      })
    }
- });
+ // });
 });
